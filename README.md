@@ -23,12 +23,9 @@ Use estos comandos para el despliegue local:
 	
 ### Hoteles:
 ![](mck2.jpeg)
-> en [Heroku Almundo API / hoteles](https://almundo-ponton.herokuapp.com/hotels)
 
 ### Información Hotel:
 ![](mck1.jpeg)
-> en [Heroku Almundo API / id_hotel](https://almundo-ponton.herokuapp.com/hotels/5e2221848a3f4f6f8ced8277), id de ejemplo: **5e2221848a3f4f6f8ced8277**
 
 ## Authors
-
 - **Carlos Pontón**  -  _Prueba Almundo_  -  [carlosponton](https://github.com/carlosponton)
