@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity
 } from 'react-native';
+import Stars from "./stars";
 
 export default function Hotel(props) {
   return (
@@ -13,13 +14,17 @@ export default function Hotel(props) {
       onPress={props.onPress}
     >
       <View style={style.container}>
-        <View style={style.left}>
+        <View>
           <Image style={style.cover} source={{uri: props.images[0]}}/>
+          <View style={style.containerStars}>
+            <Stars key={props._id} stars={props.stars}/>
+          </View>
         </View>
         <View style={style.right}>
           <Text style={style.title}>{props.name}</Text>
+          <Text>{props.city}</Text>
           <Text style={style.price}>${props.price}</Text>
-          <Text style={style.stars}>{props.stars}</Text>
+          <Text>{props.availability} disponibles</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -28,10 +33,8 @@ export default function Hotel(props) {
 
 const style = StyleSheet.create({
   container:{
-    flexDirection: 'row'
-  },
-  left: {
-
+    flexDirection: 'row',
+    padding: 10
   },
   right: {
     paddingLeft: 10,
@@ -43,7 +46,7 @@ const style = StyleSheet.create({
     resizeMode: 'contain'
   },
   title: {
-    fontSize: 18,
+    fontSize: 30,
     color: '#44546b'
   },
   price: {
@@ -57,6 +60,17 @@ const style = StyleSheet.create({
     alignSelf: 'flex-start'
   },
   stars: {
+    height: 20,
+    width: 20,
+    margin: 2,
+  },
+  containerStars: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    flexDirection: 'row'
+  },
+  city: {
     color: '#6b6b6b',
     fontSize: 14,
     fontWeight: 'bold'

@@ -17,7 +17,7 @@ export default function Close(props){
 }
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#14b739',
+    backgroundColor: 'black',
     borderRadius: 12,
     width: 25,
     height: 25,
