@@ -2,7 +2,7 @@
 
 Aplicación dedicada a la búsqueda de **Hoteles**, obteniendo información de cada uno, como: Descripción, Disponibilidad y Ubicación.
 
->### Aplicación en la nube: [Heroku Almundo API](https://almundo-ponton.herokuapp.com)
+>### Aplicación en la nube: [Heroku Almundo](https://almundo-ponton.herokuapp.com)
 
 ## Instalar y correr
 Use estos comandos para el despliegue local:
