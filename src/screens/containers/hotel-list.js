@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
 import {
   FlatList,
-  Text
 } from 'react-native'
 import HotelListLayout from "../components/hotel-list-layout";
 import Empty from "../components/empty";
 import Separator from "../components/separator";
 import Hotel from "../components/hotel";
+import { connect } from "react-redux";
 
 class HotelList extends Component {
-  keyExtrator = (item) => item.id.toString()
+  keyExtrator = (item) => item._id.toString();
   renderEmpty = () => <Empty text="No hay sugerencias :("/>;
   itemSeparator = () => <Separator/>;
-  renderItem = ({item})=> {
+  viewHotel = (item) => {
+    this.props.dispatch({
+      type: 'GET_SELECTED_HOTEL',
+      payload: {
+        hotel: item
+      }
+    })
+  };
+  renderItem = ({item}) => {
     return (
-      <Hotel {...item}/>
+      <Hotel
+        {...item}
+        onPress={() => { this.viewHotel(item) }}
+      />
     )
-  }
+  };
   render() {
     return (
       <HotelListLayout
@@ -34,4 +45,10 @@ class HotelList extends Component {
   }
 }
 
-export default HotelList;
+function mapStateToProps(state) {
+ return {
+   list: state.hotels
+ };
+}
+
+export default connect(mapStateToProps)(HotelList);

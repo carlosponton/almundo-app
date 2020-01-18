@@ -1,27 +1,23 @@
 import React, {Component} from "react";
-import Home from "./src/screens/containers/home";
-import HotelList from "./src/screens/containers/hotel-list";
-import Header from "./src/screens/components/header";
-import API from "./utils/api"
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './src/reducers/store'
+import Loading from  './src/screens/components/loading';
+import AppLayout from "./src/app-layout";
 
 export default class App extends Component {
-  state = {
-    list: []
-  };
-  async componentDidMount() {
-    const hotels = await API.getHotel(10)
-    this.setState({
-      list: hotels
-    })
-  }
   render() {
     return (
-      <Home>
-        <Header/>
-        <HotelList
-          list={this.state.list}
-        />
-      </Home>
+      <Provider
+        store={store}
+      >
+        <PersistGate
+          loading={<Loading/>}
+          persistor={persistor}
+        >
+          <AppLayout/>
+        </PersistGate>
+      </Provider>
     );
   }
 }

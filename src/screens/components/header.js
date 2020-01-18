@@ -16,7 +16,7 @@ export default function Header(props) {
             style={style.logo}
           />
         </View>
-        <View>
+        <View style={style.right}>
           {props.children}
         </View>
       </SafeAreaView>
@@ -30,7 +30,16 @@ const style = StyleSheet.create({
     height: 40,
     resizeMode: 'contain'
   },
+  right: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
   droidSafeArea: {
+    flexDirection: 'row',
+    paddingVertical: 5,
+    paddingHorizontal: 5,
     paddingTop: Platform.OS === 'android' ? 25 : 0
   }
 });

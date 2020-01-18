@@ -1,10 +1,10 @@
-const BASE_API = 'https://yts.lt/api/v2/';
+const BASE_API = 'https://almundo-ponton.herokuapp.com/';
 
 class Api {
-  async getHotel(id){
-    const query = await fetch(`${BASE_API}movie_suggestions.json?movie_id=${id}`);
-    const { data } = await query.json();
-    return data.movies;
+  async getHotels(){
+    const query = await fetch(`${BASE_API}hotels`);
+    const { hotels } = await query.json();
+    return hotels;
   }
 }
 

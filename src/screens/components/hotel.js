@@ -3,21 +3,26 @@ import {
   View,
   Image,
   Text,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
 
 export default function Hotel(props) {
   return (
-    <View style={style.container}>
-      <View style={style.left}>
-        <Image style={style.cover} source={{uri: props.medium_cover_image}}/>
+    <TouchableOpacity
+      onPress={props.onPress}
+    >
+      <View style={style.container}>
+        <View style={style.left}>
+          <Image style={style.cover} source={{uri: props.images[0]}}/>
+        </View>
+        <View style={style.right}>
+          <Text style={style.title}>{props.name}</Text>
+          <Text style={style.price}>${props.price}</Text>
+          <Text style={style.stars}>{props.stars}</Text>
+        </View>
       </View>
-      <View style={style.right}>
-        <Text style={style.title}>{props.title}</Text>
-        <Text style={style.year}>{props.year}</Text>
-        <Text style={style.rating}>{props.rating}</Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
@@ -34,14 +39,14 @@ const style = StyleSheet.create({
   },
   cover: {
     height: 150,
-    width: 100,
+    width: 200,
     resizeMode: 'contain'
   },
   title: {
     fontSize: 18,
     color: '#44546b'
   },
-  year: {
+  price: {
     backgroundColor: '#70b124',
     paddingVertical: 4,
     paddingHorizontal: 6,
@@ -51,7 +56,7 @@ const style = StyleSheet.create({
     overflow: 'hidden',
     alignSelf: 'flex-start'
   },
-  rating: {
+  stars: {
     color: '#6b6b6b',
     fontSize: 14,
     fontWeight: 'bold'
